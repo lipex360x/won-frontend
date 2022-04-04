@@ -11,7 +11,7 @@ export default {
   }
 } as Meta
 
-export const Basic: Story = (args) => <Button {...args} />
-Basic.args = {
+export const Default: Story = (args) => <Button {...args} />
+Default.args = {
   children: 'Buy Now'
 }
