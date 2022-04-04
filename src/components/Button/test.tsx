@@ -1,15 +1,37 @@
-import { render, screen } from '@testing-library/react'
-// import { renderWithTheme } from 'utils/tests/helpers'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 // import 'jest-styled-components'
 
 import Button from '.'
 
 describe('<Button />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Button />)
+  it('should render the medium size by default', () => {
+    renderWithTheme(<Button>Buy now</Button>)
 
-    expect(screen.getByRole('heading', { name: /Button/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
+      height: '4rem',
+      padding: '0.8rem 3.2rem',
+      'font-size': '1.4rem'
+    })
+  })
 
-    expect(container.firstChild).toMatchSnapshot()
+  it('should render the small size when this size is passed', () => {
+    renderWithTheme(<Button size="small">Buy now</Button>)
+
+    expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
+      height: '3rem',
+      padding: '0.8rem',
+      'font-size': '1.2rem'
+    })
+  })
+
+  it('should render the medium size by default', () => {
+    renderWithTheme(<Button size="large">Buy now</Button>)
+
+    expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
+      height: '5rem',
+      padding: '0.8rem 4.8rem',
+      'font-size': '1.6rem'
+    })
   })
 })

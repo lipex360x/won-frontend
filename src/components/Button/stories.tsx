@@ -15,5 +15,3 @@ export const Basic: Story = (args) => <Button {...args} />
 Basic.args = {
   children: 'Buy Now'
 }
-
-export const Default: Story = (args) => <Button {...args} />
