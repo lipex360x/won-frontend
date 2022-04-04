@@ -1,11 +1,37 @@
 // import media from 'styled-media-query'
 // import 'jest-styled-components'
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
+import { ButtonProps } from '.'
 
-export const Wrapper = styled.main`
-  ${({ theme }) => css`
-    h1 {
-      color: ${theme.colors.black};
-    }
+type WrapperProps = Pick<ButtonProps, 'size'>
+
+const wrapperModifiers = {
+  small: (theme: DefaultTheme) => css`
+    height: 3rem;
+    font-size: ${theme.font.sizes.xsmall};
+  `,
+
+  medium: (theme: DefaultTheme) => css`
+    height: 4rem;
+    font-size: ${theme.font.sizes.small};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
+  `,
+
+  large: (theme: DefaultTheme) => css`
+    height: 5rem;
+    font-size: ${theme.font.sizes.medium};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
+  `
+}
+
+export const Wrapper = styled.button<WrapperProps>`
+  ${({ theme, size }) => css`
+    background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
+    color: ${theme.colors.white};
+    cursor: pointer;
+    border-radius: ${theme.border.radius};
+    padding: ${theme.spacings.xxsmall};
+
+    ${!!size && wrapperModifiers[size](theme)}
   `}
 `
