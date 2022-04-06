@@ -43,11 +43,29 @@
     ]
   },
 
+  "Export CSS Const": {
+    "prefix": "exportConst",
+    "body": [
+      "export const ${1:STYLED_WRAPPER} = styled.div`",
+      "  ${({ theme }) => css``}",
+      "`"
+    ]
+  },
+
+
   "CSS Theme": {
-    "prefix": "cssTheme",
+    "prefix": "themeCss",
     "body": [
       "\\${({ theme }) => css``}"
     ]
   },
+
+  "LessThan - Mobile Size": {
+    "prefix": "lessThan",
+    "body": [
+      "\\${media.lessThan('medium')``}"
+    ]
+  },
+
 
 }
