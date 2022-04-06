@@ -67,5 +67,21 @@
     ]
   },
 
+  "GreaterThan - Desktop Size": {
+    "prefix": "greaterThan",
+    "body": [
+      "\\${media.greaterThan('medium')``}"
+    ]
+  },
+
+  "It Should Tests": {
+    "prefix": "itShould",
+    "body": [
+      "it('should ${1:BE_ABLE_TO}', () => {",
+      "  renderWithTheme(<${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/} />)",
+      "})"
+    ]
+  },
+
 
 }

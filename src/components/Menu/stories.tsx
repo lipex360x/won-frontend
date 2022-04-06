@@ -6,9 +6,15 @@ export default {
   title: 'Menu'
 } as Meta
 
-export const Default: Story = (args) => <Menu {...args} />
-Default.args = {
+export const Mobile: Story = (args) => <Menu {...args} />
+Mobile.args = {
   title: 'Menu'
+}
+
+Mobile.parameters = {
+  viewport: {
+    defaultViewport: 'mobile1'
+  }
 }
 
 export const Basic: Story = (args) => <Menu {...args} />
