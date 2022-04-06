@@ -46,12 +46,11 @@
   "Export CSS Const": {
     "prefix": "exportConst",
     "body": [
-      "export const ${1:STYLED_WRAPPER} = styled.div`",
+      "export const ${1:STYLED_WRAPPER} = styled.${2:div}`",
       "  ${({ theme }) => css``}",
       "`"
     ]
   },
-
 
   "CSS Theme": {
     "prefix": "themeCss",
