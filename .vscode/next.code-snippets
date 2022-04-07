@@ -53,9 +53,39 @@
   },
 
   "CSS Theme": {
-    "prefix": "cssTheme",
+    "prefix": "themeCss",
     "body": [
       "\\${({ theme }) => css``}"
+    ]
+  },
+
+  "LessThan - Mobile Size": {
+    "prefix": "lessThan",
+    "body": [
+      "\\${media.lessThan('medium')``}"
+    ]
+  },
+
+  "GreaterThan - Desktop Size": {
+    "prefix": "greaterThan",
+    "body": [
+      "\\${media.greaterThan('medium')``}"
+    ]
+  },
+
+  "It Should Tests": {
+    "prefix": "itShould",
+    "body": [
+      "it('should ${1:BE_ABLE_TO}', () => {",
+      "  renderWithTheme(<${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/} />)",
+      "})"
+    ]
+  },
+
+  "Theme DefaultTheme": {
+    "prefix": "themeDefaultCSS",
+    "body": [
+      "${1:NAME}: (theme: DefaultTheme) => css``,"
     ]
   },
 
