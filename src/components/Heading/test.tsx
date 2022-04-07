@@ -8,7 +8,7 @@ describe('<Heading />', () => {
     renderWithTheme(<Heading>Won Games</Heading>)
 
     expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyle({
-      color: '#fafafa'
+      color: '#030517'
     })
   })
 
