@@ -15,12 +15,6 @@ Mobile.parameters = {
   layout: 'fullscreen',
   backgrounds: {
     default: 'dark'
-    // values: [
-    //   { name: 'dark', value: '#000', default: true },
-    //   { name: 'red', value: '#f00' },
-    //   { name: 'green', value: '#0f0' },
-    //   { name: 'blue', value: '#00f' }
-    // ]
   },
   viewport: {
     defaultViewport: 'mobile1'
