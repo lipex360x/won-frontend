@@ -82,5 +82,11 @@
     ]
   },
 
+  "Theme DefaultTheme": {
+    "prefix": "themeDefaultCSS",
+    "body": [
+      "${1:NAME}: (theme: DefaultTheme) => css``,"
+    ]
+  },
 
 }

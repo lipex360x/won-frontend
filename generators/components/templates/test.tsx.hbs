@@ -7,6 +7,8 @@ describe('<{{pascalCase name}} />', () => {
   it('should render the heading', () => {
     renderWithTheme(<{{pascalCase name}} />)
 
-    expect(screen.getByRole('heading', { name: /{{pascalCase name}}/i })).toBeInTheDocument()
+    const {{name}} = screen.getByRole('heading', { name: /{{pascalCase name}}/i })
+
+    expect({{name}}).toBeInTheDocument()
   })
 })
