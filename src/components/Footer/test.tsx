@@ -4,11 +4,21 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Footer from '.'
 
 describe('<Footer />', () => {
-  it('should render the heading', () => {
-    renderWithTheme(<Footer />)
+  it('should render 4 column topics', () => {
+    const { container } = renderWithTheme(<Footer />)
 
-    const footer = screen.getByRole('heading', { name: /Footer/i })
+    const contact = screen.getByRole('heading', { name: /contact/i })
+    expect(contact).toBeInTheDocument()
 
-    expect(footer).toBeInTheDocument()
+    const followUs = screen.getByRole('heading', { name: /follow us/i })
+    expect(followUs).toBeInTheDocument()
+
+    const links = screen.getByRole('heading', { name: /links/i })
+    expect(links).toBeInTheDocument()
+
+    const location = screen.getByRole('heading', { name: /location/i })
+    expect(location).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
