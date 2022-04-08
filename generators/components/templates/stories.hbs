@@ -6,21 +6,20 @@ export default {
   title: '{{pascalCase name}}',
   args: {
     title: '{{pascalCase name}}'
+  },
+  parameters: {
+    // layout: 'fullscreen',
+    backgrounds: {
+    default: 'light',
+    values: [
+        { name: 'light', value: '#F8F8F8' },
+        { name: 'dark', value: '#333' }
+      ]
+    }
   }
 } as Meta
 
 export const Default: Story<{{pascalCase name}}Props> = (args) => <{{pascalCase name}} {...args} />
-
-Default.parameters = {
-  backgrounds: {
-    default: 'light',
-    values: [
-      { name: 'light', value: '#F8F8F8' },
-      { name: 'dark', value: '#333' }
-    ]
-  }
-  // layout: 'fullscreen',
-}
 
 export const Mobile: Story<{{pascalCase name}}Props> = (args) => <{{pascalCase name}} {...args} />
 
