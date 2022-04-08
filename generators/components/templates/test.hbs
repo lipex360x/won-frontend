@@ -3,11 +3,17 @@ import { renderWithTheme } from 'utils/tests/helpers'
 
 import {{pascalCase name}} from '.'
 
+const props = {
+  title: '{{pascalCase name}}'
+}
+
 describe('<{{pascalCase name}} />', () => {
   it('should render the heading', () => {
-    renderWithTheme(<{{pascalCase name}} title="{{pascalCase name}}" />)
+    const { debug, container } = renderWithTheme(<{{pascalCase name}} {...props} />)
 
     const {{name}} = screen.getByRole('heading', { name: /{{pascalCase name}}/i })
+
+    debug(container)
 
     expect({{name}}).toBeInTheDocument()
   })
