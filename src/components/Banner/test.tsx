@@ -13,7 +13,7 @@ const props = {
 
 describe('<Banner />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<Banner {...props} />)
+    const { container } = renderWithTheme(<Banner {...props} />)
 
     const title = screen.getByRole('heading', { name: /Defy death/i })
     const subtitle = screen.getByRole('heading', { name: /CrashLands season/i })
@@ -22,5 +22,7 @@ describe('<Banner />', () => {
     expect(title).toBeInTheDocument()
     expect(subtitle).toBeInTheDocument()
     expect(img).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
