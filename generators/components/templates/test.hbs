@@ -5,7 +5,7 @@ import {{pascalCase name}} from '.'
 
 describe('<{{pascalCase name}} />', () => {
   it('should render the heading', () => {
-    renderWithTheme(<{{pascalCase name}} />)
+    renderWithTheme(<{{pascalCase name}} title="{{pascalCase name}}" />)
 
     const {{name}} = screen.getByRole('heading', { name: /{{pascalCase name}}/i })
 
