@@ -26,7 +26,7 @@ module.exports = {
         data: {},
         path: `${generatePath}`,
         name: 'index.tsx',
-        template: 'Component.tsx.hbs',
+        template: 'index.hbs',
         force: false
       })
 
@@ -34,7 +34,7 @@ module.exports = {
         data: {},
         path: `${generatePath}`,
         name: 'stories.tsx',
-        template: 'stories.tsx.hbs',
+        template: 'stories.hbs',
         force: false
       })
 
@@ -42,7 +42,7 @@ module.exports = {
         data: {},
         path: `${generatePath}`,
         name: 'styles.ts',
-        template: 'styles.ts.hbs',
+        template: 'styles.hbs',
         force: false
       })
 
@@ -50,7 +50,7 @@ module.exports = {
         data: {},
         path: `${generatePath}`,
         name: 'test.tsx',
-        template: 'test.tsx.hbs',
+        template: 'test.hbs',
         force: false
       })
 

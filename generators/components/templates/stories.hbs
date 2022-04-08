@@ -3,37 +3,28 @@ import {{pascalCase name}} from '.'
 
 export default {
   component: {{pascalCase name}},
-  title: '{{pascalCase name}}'
+  title: '{{pascalCase name}}',
+  args: {
+    title: '{{pascalCase name}}'
+  }
 } as Meta
 
-export const Default: Story = (args) => <{{pascalCase name}} {...args} />
-
-Default.args = {
-  title: '{{pascalCase name}}'
-}
+export const Default: Story<{{pascalCase name}}Props> = (args) => <{{pascalCase name}} {...args} />
 
 Default.parameters = {
-  layout: 'fullscreen',
   backgrounds: {
     default: 'light'
     // values: [
     //   { name: 'light', value: '#F8F8F8' },
     //   { name: 'dark', value: '#333' },
-    //   { name: 'red', value: '#f00' },
-    //   { name: 'green', value: '#0f0' },
-    //   { name: 'blue', value: '#00f' }
     // ]
   }
+  // layout: 'fullscreen',
 }
 
 export const Mobile: Story = (args) => <{{pascalCase name}} {...args} />
 
-Mobile.args = {
-  title: '{{pascalCase name}}'
-}
-
 Mobile.parameters = {
-  // layout: 'fullscreen',
   viewport: {
     defaultViewport: 'mobile1'
   }
