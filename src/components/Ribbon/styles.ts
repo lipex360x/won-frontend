@@ -1,7 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { RibbonColors, RibbonProps } from '.'
 import { darken } from 'polished'
-// import media from 'styled-media-query'
 
 const wrapperModifiers = {
   color: (theme: DefaultTheme, color: RibbonColors) => css`
