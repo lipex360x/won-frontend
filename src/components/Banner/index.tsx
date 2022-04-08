@@ -23,7 +23,7 @@ const Banner = ({
 
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
 
-      <Button as="a" href={buttonLink} size="large">
+      <Button as="a" href={buttonLink} size="medium">
         {buttonLabel}
       </Button>
     </S.Caption>
