@@ -1,4 +1,3 @@
-// eslint-disable
 import crypto from 'crypto'
 
 export const capitalize = (word: string) => {
@@ -12,7 +11,7 @@ export const pascalCase = (word: string) => {
 }
 
 export const camelCase = (word: string) => {
-  return word.replace(/^([A-Z])|\s(\w)/g, function (match, p1, p2, offset) {
+  return word.replace(/^([A-Z])|\s(\w)/g, function (match, p1, p2) {
     if (p2) return p2.toUpperCase()
     return p1.toLowerCase()
   })
