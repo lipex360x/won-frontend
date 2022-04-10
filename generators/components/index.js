@@ -8,11 +8,11 @@ module.exports = {
       name: 'type',
       message: 'Select a component type',
       choices: () => [
-        { name: 'Boson', value: 'boson' },
-        { name: 'Atom', value: 'atom' },
-        { name: 'Molecule', value: 'molecule' },
-        { name: 'Organism', value: 'organism' },
-        { name: 'Template', value: 'template' },
+        { name: 'Boson', value: 'bosons' },
+        { name: 'Atom', value: 'atoms' },
+        { name: 'Molecule', value: 'molecules' },
+        { name: 'Organism', value: 'organisms' },
+        { name: 'Template', value: 'templates' },
         { name: 'Page', value: 'page' },
       ]
     },
