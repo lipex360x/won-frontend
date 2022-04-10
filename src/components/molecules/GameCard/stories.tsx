@@ -26,7 +26,10 @@ export default {
   component: GameCard,
   title: 'Design System/molecules/GameCard',
   args: props,
-  argTypes: { onFav: { action: 'clicked' } },
+  argTypes: {
+    onFav: { action: 'clicked' },
+    ribbon: { type: 'string' }
+  },
   parameters
 } as Meta
 

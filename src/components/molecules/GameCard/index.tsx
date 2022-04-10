@@ -1,6 +1,8 @@
 import Button from 'components/atoms/Button'
 import { Favorite, FavoriteBorder } from 'styled-icons/material'
 import { AddShoppingCart } from 'styled-icons/material-outlined'
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/atoms/Ribbon'
+
 import * as S from './styles'
 
 export type GameCardProps = {
@@ -10,6 +12,9 @@ export type GameCardProps = {
   price: string
   promotionalPrice?: string
   favorite?: boolean
+  ribbon?: React.ReactNode
+  ribbonSize?: RibbonSizes
+  ribbonColor?: RibbonColors
   onFav?: () => void
 }
 
@@ -20,12 +25,21 @@ const GameCard = ({
   price,
   promotionalPrice,
   favorite = false,
+  ribbon,
+  ribbonColor = 'primary',
+  ribbonSize = 'normal',
   onFav
 }: GameCardProps) => (
   <S.Wrapper>
     <S.ImageBox>
       <img src={img} alt={title} />
     </S.ImageBox>
+
+    {!!ribbon && (
+      <Ribbon size={ribbonSize} color={ribbonColor}>
+        {ribbon}
+      </Ribbon>
+    )}
 
     <S.Content>
       <S.Info>

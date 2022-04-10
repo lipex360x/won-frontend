@@ -25,11 +25,7 @@ export default {
   component: Banner,
   title: 'Design System/molecules/Banner',
   args: props,
-  argTypes: {
-    ribbon: {
-      type: 'string'
-    }
-  },
+  argTypes: { ribbon: { type: 'string' } },
   parameters
 } as Meta
 
