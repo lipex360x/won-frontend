@@ -11,7 +11,7 @@ export const Wrapper = styled.menu`
 `
 
 export const LogoWrapper = styled.div`
-  ${({ theme }) => css`
+  ${() => css`
     ${media.lessThan('medium')`
       position: absolute;
       left: 50%;

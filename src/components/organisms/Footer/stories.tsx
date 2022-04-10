@@ -1,11 +1,11 @@
 import { Story, Meta } from '@storybook/react'
 import theme from 'styles/theme'
 
-import Menu from '.'
+import Footer from '.'
 
 const parameters = {
   backgrounds: {
-    default: 'main',
+    default: 'white',
     values: [
       { name: 'main', value: `${theme.colors.mainBg}` },
       { name: 'white', value: `${theme.colors.white}` },
@@ -15,21 +15,21 @@ const parameters = {
 }
 
 export default {
-  component: Menu,
-  title: 'Design System/molecules/Menu',
+  component: Footer,
+  title: 'Design System/organisms/Footer',
   parameters
 } as Meta
 
-export const Mobile: Story = (args) => <Menu {...args} />
+export const Mobile: Story = (args) => <Footer {...args} />
 
 Mobile.parameters = {
-  layout: 'fullscreen',
   viewport: {
     defaultViewport: 'mobile2'
   }
 }
 
-export const Desktop: Story = (args) => <Menu {...args} />
-Desktop.parameters = {
-  layout: 'fullscreen'
-}
+export const Desktop: Story = (args) => (
+  <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
+    <Footer {...args} />
+  </div>
+)
