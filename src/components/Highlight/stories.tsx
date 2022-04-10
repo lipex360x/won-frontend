@@ -5,7 +5,10 @@ export default {
   component: Highlight,
   title: 'Highlight',
   args: {
-    title: 'Highlight'
+    title: "Red Dead it's back",
+    subtitle: 'Come see now',
+    buttonLabel: 'Buy now',
+    buttonLink: '/rds'
   },
   parameters: {
     backgrounds: {

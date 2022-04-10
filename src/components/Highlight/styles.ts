@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components'
 // import media from 'styled-media-query'
 
-import { HighlightProps } from '.'
-
-export const Wrapper = styled.div<HighlightProps>`
+export const Wrapper = styled.div`
   ${({ theme }) => css``}
 `
 
 export const Title = styled.h2`
-  ${({ theme }) => css`
-    color: ${theme.colors.black};
-  `}
+  ${({ theme }) => css``}
+`
+
+export const Subtitle = styled.h3`
+  ${({ theme }) => css``}
 `
