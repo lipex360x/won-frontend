@@ -7,7 +7,8 @@ const props = {
   title: 'GameCard',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: 'R$200,00'
+  price: 'R$200,00',
+  promotionalPrice: 'R$160,00'
 } as GameCardProps
 
 const parameters = {

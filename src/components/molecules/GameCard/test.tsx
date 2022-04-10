@@ -7,7 +7,7 @@ const props = {
   title: 'GameCard',
   developer: 'Rockstar Games',
   img: 'imgs/game.jpg',
-  price: '200'
+  price: 'R$200,00'
 } as GameCardProps
 
 describe('<GameCard />', () => {
@@ -18,11 +18,31 @@ describe('<GameCard />', () => {
     const developer = screen.getByRole('heading', { name: /Rockstar Games/i })
     const image = screen.getByRole('img', { name: props.title })
     const wishIcon = screen.getByLabelText('Add to Wishlist')
-    // const price = screen.getByRole('', { name: /Rockstar Games/i })
 
     expect(title).toBeInTheDocument()
     expect(developer).toBeInTheDocument()
     expect(image).toHaveAttribute('src', props.img)
     expect(wishIcon).toBeInTheDocument()
+  })
+
+  it('should render price in label', () => {
+    renderWithTheme(<GameCard {...props} />)
+
+    const price = screen.getByText('R$200,00')
+
+    expect(price).not.toHaveStyle({ 'text-decoration': 'line-through' })
+    expect(price).toHaveStyle({ backgroundColor: '#3CD3C1' })
+  })
+
+  it('should render a line-through in price when promotional', () => {
+    renderWithTheme(<GameCard {...props} promotionalPrice="R$180,00" />)
+
+    const price = screen.getByText('R$200,00')
+    const promotionalPrice = screen.getByText('R$180,00')
+
+    expect(price).toHaveStyle({ 'text-decoration': 'line-through' })
+    expect(promotionalPrice).not.toHaveStyle({
+      'text-decoration': 'line-through'
+    })
   })
 })
