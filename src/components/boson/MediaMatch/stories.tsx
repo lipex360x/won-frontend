@@ -3,7 +3,7 @@ import MediaMatch from '.'
 
 export default {
   component: MediaMatch,
-  title: 'MediaMatch'
+  title: 'Design System/boson/MediaMatch'
 } as Meta
 
 export const Desktop: Story = () => (

@@ -1,16 +1,19 @@
 import { Story, Meta } from '@storybook/react'
 import {{pascalCase name}}, { {{pascalCase name}}Props } from '.'
 
+import theme from 'styles/theme'
+
 const props = {
   title: '{{pascalCase name}}'
-}
+} as {{pascalCase name}}Props
 
 const parameters = {
   backgrounds: {
-    default: 'light',
+    default: 'white',
     values: [
-      { name: 'light', value: '#F8F8F8' },
-      { name: 'dark', value: '#333' }
+      { name: 'main', value: `${theme.colors.mainBg}` },
+      { name: 'white', value: `${theme.colors.white}` },
+      { name: 'black', value: `${theme.colors.black}` }
     ]
   }
   // layout: 'fullscreen',
@@ -18,14 +21,22 @@ const parameters = {
 
 export default {
   component: {{pascalCase name}},
-  title: '{{pascalCase name}}',
+  title: 'Design System/{{atomic}}/{{pascalCase name}}',
   args: props,
   parameters
 } as Meta
 
-export const Default: Story<{{pascalCase name}}Props> = (args) => <{{pascalCase name}} {...args} />
+export const Default: Story<{{pascalCase name}}Props> = (args) => (
+  <div>
+    <{{pascalCase name}} {...args} />
+  </div>
+)
 
-export const Mobile: Story<{{pascalCase name}}Props> = (args) => <{{pascalCase name}} {...args} />
+export const Mobile: Story<{{pascalCase name}}Props> = (args) => (
+  <div>
+    <{{pascalCase name}} {...args} />
+  </div>
+)
 
 Mobile.parameters = {
   viewport: {

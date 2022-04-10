@@ -4,6 +4,20 @@ module.exports = {
   description: 'Generate a Component',
   prompts: [
     {
+      type: 'list',
+      name: 'type',
+      message: 'Select a component type',
+      choices: () => [
+        { name: 'Boson', value: 'boson' },
+        { name: 'Atom', value: 'atom' },
+        { name: 'Molecule', value: 'molecule' },
+        { name: 'Organism', value: 'organism' },
+        { name: 'Template', value: 'template' },
+        { name: 'Page', value: 'page' },
+      ]
+    },
+
+    {
       type: 'input',
       name: 'name',
       message: 'Component Name',
@@ -16,8 +30,10 @@ module.exports = {
   ],
 
   actions: (data) => {
+    const atomic = data.type
+
     const pathTemplate = './components/templates'
-    const generatePath = `../src/components/{{ pascalCase name }}`
+    const generatePath = `../src/components/${atomic}/{{ pascalCase name }}`
 
     const files = () => {
       const arrayFiles = []
@@ -31,7 +47,7 @@ module.exports = {
       })
 
       arrayFiles.push({
-        data: {},
+        data: {atomic},
         path: `${generatePath}`,
         name: 'stories.tsx',
         template: 'stories.hbs',

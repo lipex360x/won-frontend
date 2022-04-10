@@ -1,4 +1,4 @@
-import Button from 'components/Button'
+import Button from 'components/atom/Button'
 import * as S from './styles'
 
 export type AlignmentProps = 'right' | 'left'

@@ -7,8 +7,8 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import Logo from 'components/Logo'
 
 import * as S from './styles'
-import Button from 'components/Button'
-import MediaMatch from 'components/MediaMatch'
+import Button from 'components/atom/Button'
+import MediaMatch from 'components/boson/MediaMatch'
 
 type MenuProps = {
   username?: string
