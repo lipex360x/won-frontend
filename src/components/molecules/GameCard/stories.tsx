@@ -36,7 +36,7 @@ Mobile.parameters = {
   }
 }
 
-export const Default: Story<GameCardProps> = (args) => (
+export const Desktop: Story<GameCardProps> = (args) => (
   <div style={{ maxWidth: '30rem', margin: '0 auto' }}>
     <GameCard {...args} />
   </div>

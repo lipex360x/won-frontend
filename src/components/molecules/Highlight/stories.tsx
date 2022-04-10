@@ -26,12 +26,6 @@ export default {
   parameters
 } as Meta
 
-export const Default: Story<HighlightProps> = (args) => (
-  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
-    <Highlight {...args} />
-  </div>
-)
-
 export const Mobile: Story<HighlightProps> = (args) => <Highlight {...args} />
 
 Mobile.parameters = {
@@ -39,6 +33,12 @@ Mobile.parameters = {
     defaultViewport: 'mobile2'
   }
 }
+
+export const Desktop: Story<HighlightProps> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Highlight {...args} />
+  </div>
+)
 
 export const WithFloatImage: Story<HighlightProps> = (args) => (
   <div style={{ maxWidth: '104rem', margin: '0 auto' }}>

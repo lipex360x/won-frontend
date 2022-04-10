@@ -25,8 +25,6 @@ export default {
   parameters
 } as Meta
 
-export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
-
 export const Mobile: Story<HeadingProps> = (args) => <Heading {...args} />
 
 Mobile.parameters = {
@@ -34,3 +32,5 @@ Mobile.parameters = {
     defaultViewport: 'mobile2'
   }
 }
+
+export const Desktop: Story<HeadingProps> = (args) => <Heading {...args} />
