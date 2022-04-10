@@ -1,6 +1,8 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
+import * as S from './styles'
+
 import Highlight from '.'
 
 const props = {
@@ -39,6 +41,36 @@ describe('<Highlight />', () => {
     const floatImage = screen.getByRole('img', { name: props.title })
 
     expect(floatImage).toHaveAttribute('src', 'img/red-dead-float.png')
+  })
+
+  it('should render align right by default', () => {
+    const { container } = renderWithTheme(
+      <Highlight {...props} floatImage={props.floatImage} />
+    )
+
+    expect(container.firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'floatImage content'"
+    )
+
+    expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
+      modifier: `${S.Content}`
+    })
+  })
+
+  it('should render align left if alignment left is passed', () => {
+    const { container } = renderWithTheme(
+      <Highlight {...props} alignment="left" />
+    )
+
+    expect(container.firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'content floatImage'"
+    )
+
+    expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
+      modifier: `${S.Content}`
+    })
   })
 })
 
