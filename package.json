@@ -10,6 +10,7 @@
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "gen": "yarn plop --plopfile generators/plopfile.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -28,7 +29,7 @@
   "devDependencies": {
     "@storybook/addon-essentials": "6.4.14",
     "@storybook/builder-webpack5": "^6.4.14",
-    "@storybook/manager-webpack5": "^6.4.14",
+    "@storybook/manager-webpack5": "^6.4.21",
     "@storybook/react": "6.4.14",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
