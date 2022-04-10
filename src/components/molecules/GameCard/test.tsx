@@ -11,13 +11,18 @@ const props = {
 } as GameCardProps
 
 describe('<GameCard />', () => {
-  it('should render the heading', () => {
-    const { debug, container } = renderWithTheme(<GameCard {...props} />)
+  it('should render correctly', () => {
+    renderWithTheme(<GameCard {...props} />)
 
-    const gameCard = screen.getByRole('heading', { name: /GameCard/i })
+    const title = screen.getByRole('heading', { name: /GameCard/i })
+    const developer = screen.getByRole('heading', { name: /Rockstar Games/i })
+    const image = screen.getByRole('img', { name: props.title })
+    const wishIcon = screen.getByLabelText('Add to Wishlist')
+    // const price = screen.getByRole('', { name: /Rockstar Games/i })
 
-    debug(container)
-
-    expect(gameCard).toBeInTheDocument()
+    expect(title).toBeInTheDocument()
+    expect(developer).toBeInTheDocument()
+    expect(image).toHaveAttribute('src', props.img)
+    expect(wishIcon).toBeInTheDocument()
   })
 })

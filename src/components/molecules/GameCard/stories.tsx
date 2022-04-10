@@ -7,7 +7,7 @@ const props = {
   title: 'GameCard',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: '200'
+  price: 'R$200,00'
 } as GameCardProps
 
 const parameters = {
@@ -28,12 +28,6 @@ export default {
   parameters
 } as Meta
 
-export const Default: Story<GameCardProps> = (args) => (
-  <div style={{ maxWidth: '30rem', margin: '0 auto' }}>
-    <GameCard {...args} />
-  </div>
-)
-
 export const Mobile: Story<GameCardProps> = (args) => <GameCard {...args} />
 
 Mobile.parameters = {
@@ -41,3 +35,9 @@ Mobile.parameters = {
     defaultViewport: 'mobile1'
   }
 }
+
+export const Default: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '30rem', margin: '0 auto' }}>
+    <GameCard {...args} />
+  </div>
+)

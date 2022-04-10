@@ -25,12 +25,6 @@ export default {
   parameters
 } as Meta
 
-export const Default: Story<{{pascalCase name}}Props> = (args) => (
-  <div>
-    <{{pascalCase name}} {...args} />
-  </div>
-)
-
 export const Mobile: Story<{{pascalCase name}}Props> = (args) => (
   <div>
     <{{pascalCase name}} {...args} />
@@ -39,6 +33,12 @@ export const Mobile: Story<{{pascalCase name}}Props> = (args) => (
 
 Mobile.parameters = {
   viewport: {
-    defaultViewport: 'mobile1'
+    defaultViewport: 'mobile2'
   }
 }
+
+export const Default: Story<{{pascalCase name}}Props> = (args) => (
+  <div>
+    <{{pascalCase name}} {...args} />
+  </div>
+)
