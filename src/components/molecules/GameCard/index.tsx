@@ -27,7 +27,7 @@ const GameCard = ({
   favorite = false,
   ribbon,
   ribbonColor = 'primary',
-  ribbonSize = 'normal',
+  ribbonSize = 'small',
   onFav
 }: GameCardProps) => (
   <S.Wrapper>
