@@ -7,6 +7,7 @@ const props = {
   title: "Red Dead it's back",
   subtitle: 'Come see now',
   backgroundImage: 'img/red-dead-img.jpg',
+  floatImage: 'img/red-dead-float.png',
   buttonLabel: 'Buy now',
   buttonLink: '/rds'
 }
@@ -30,6 +31,14 @@ describe('<Highlight />', () => {
     expect(container.firstChild).toHaveStyle({
       backgroundImage: `url(${props.backgroundImage})`
     })
+  })
+
+  it('should render background image', () => {
+    renderWithTheme(<Highlight {...props} floatImage={props.floatImage} />)
+
+    const floatImage = screen.getByRole('img', { name: props.title })
+
+    expect(floatImage).toHaveAttribute('src', 'img/red-dead-float.png')
   })
 })
 
