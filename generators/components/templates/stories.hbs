@@ -1,22 +1,26 @@
 import { Story, Meta } from '@storybook/react'
 import {{pascalCase name}}, { {{pascalCase name}}Props } from '.'
 
+const props = {
+  title: '{{pascalCase name}}'
+}
+
+const parameters = {
+  backgrounds: {
+    default: 'light',
+    values: [
+      { name: 'light', value: '#F8F8F8' },
+      { name: 'dark', value: '#333' }
+    ]
+  }
+  // layout: 'fullscreen',
+}
+
 export default {
   component: {{pascalCase name}},
   title: '{{pascalCase name}}',
-  args: {
-    title: '{{pascalCase name}}'
-  },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-      values: [
-        { name: 'light', value: '#F8F8F8' },
-        { name: 'dark', value: '#333' }
-      ]
-    }
-    // layout: 'fullscreen',
-  }
+  args: props,
+  parameters
 } as Meta
 
 export const Default: Story<{{pascalCase name}}Props> = (args) => <{{pascalCase name}} {...args} />

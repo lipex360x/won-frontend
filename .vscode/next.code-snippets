@@ -77,7 +77,7 @@
     "prefix": "itShould",
     "body": [
       "it('should ${1:BE_ABLE_TO}', () => {",
-      "  renderWithTheme(<${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/} />)",
+      "  renderWithTheme(<${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/} {...props} />)",
       "})"
     ]
   },
