@@ -46,3 +46,15 @@ export const Desktop: Story<GameCardProps> = (args) => (
     <GameCard {...args} />
   </div>
 )
+
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '30rem', margin: '0 auto' }}>
+    <GameCard {...args} />
+  </div>
+)
+
+WithRibbon.args = {
+  ribbon: '20% OFF',
+  ribbonSize: 'normal',
+  ribbonColor: 'primary'
+}
