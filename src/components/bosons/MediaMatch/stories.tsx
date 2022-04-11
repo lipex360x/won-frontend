@@ -6,10 +6,6 @@ export default {
   title: 'Design System/bosons/MediaMatch'
 } as Meta
 
-export const Desktop: Story = () => (
-  <MediaMatch greaterThan="medium">Only on Desktop</MediaMatch>
-)
-
 export const Mobile: Story = () => (
   <MediaMatch lessThan="medium">Only on Mobile</MediaMatch>
 )
@@ -18,3 +14,7 @@ Mobile.parameters = {
     defaultViewport: 'mobile2'
   }
 }
+
+export const Desktop: Story = () => (
+  <MediaMatch greaterThan="medium">Only on Desktop</MediaMatch>
+)
