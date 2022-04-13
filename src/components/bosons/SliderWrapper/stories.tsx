@@ -21,15 +21,15 @@ export default {
   parameters
 } as Meta
 
-const horizontalSettings = {
+const horizontalSettings: Settings = {
   dots: true,
   infinite: true,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1
-} as Settings
+}
 
-const verticalSettings = {
+const verticalSettings: Settings = {
   vertical: true,
   verticalSwiping: true,
   dots: true,
@@ -37,7 +37,7 @@ const verticalSettings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1
-} as Settings
+}
 
 const Slide = styled.div`
   background: gray;
