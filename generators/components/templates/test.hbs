@@ -1,11 +1,12 @@
-import { screen } from '@testing-library/react'
+import 'match-media-mock'
+
 import { renderWithTheme } from 'utils/helpers/tests'
 
 import {{pascalCase name}}, { {{pascalCase name}}Props } from '.'
 
-const props = {
+const props: {{pascalCase name}}Props = {
   title: '{{pascalCase name}}'
-} as {{pascalCase name}}Props
+}
 
 describe('<{{pascalCase name}} />', () => {
   it('should render the heading', () => {
