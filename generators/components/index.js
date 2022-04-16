@@ -30,45 +30,57 @@ module.exports = {
   ],
 
   actions: (data) => {
+    const name = data.name
     const atomic = data.type
 
     const pathTemplate = './components/templates'
-    const generatePath = `../src/components/${atomic}/{{ pascalCase name }}`
+    const componentPath = `../src/components/${atomic}/{{ pascalCase name }}`
+    const pagePath = `../src/pages/{{ camelCase name }}`
 
     const files = () => {
       const arrayFiles = []
 
-      arrayFiles.push({
-        data: {},
-        path: `${generatePath}`,
-        name: 'index.tsx',
-        template: 'index.hbs',
-        force: false
-      })
+      if(atomic === 'page') {
+        arrayFiles.push({
+          data: {name},
+          path: `${pagePath}`,
+          name: 'index.tsx',
+          template: 'page.hbs',
+          force: false
+        })
+      } else {
+        arrayFiles.push({
+          data: {},
+          path: `${componentPath}`,
+          name: 'index.tsx',
+          template: 'index.hbs',
+          force: false
+        })
 
-      arrayFiles.push({
-        data: {atomic},
-        path: `${generatePath}`,
-        name: 'stories.tsx',
-        template: 'stories.hbs',
-        force: false
-      })
+        arrayFiles.push({
+          data: {atomic},
+          path: `${componentPath}`,
+          name: 'stories.tsx',
+          template: 'stories.hbs',
+          force: false
+        })
 
-      arrayFiles.push({
-        data: {},
-        path: `${generatePath}`,
-        name: 'styles.ts',
-        template: 'styles.hbs',
-        force: false
-      })
+        arrayFiles.push({
+          data: {},
+          path: `${componentPath}`,
+          name: 'styles.ts',
+          template: 'styles.hbs',
+          force: false
+        })
 
-      arrayFiles.push({
-        data: {},
-        path: `${generatePath}`,
-        name: 'test.tsx',
-        template: 'test.hbs',
-        force: false
-      })
+        arrayFiles.push({
+          data: {},
+          path: `${componentPath}`,
+          name: 'test.tsx',
+          template: 'test.hbs',
+          force: false
+        })
+      }
 
       return arrayFiles
     }
