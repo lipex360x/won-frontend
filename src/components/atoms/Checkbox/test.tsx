@@ -1,5 +1,6 @@
 import 'match-media-mock'
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { renderWithTheme } from 'utils/helpers/tests'
 
@@ -39,5 +40,19 @@ describe('<Checkbox />', () => {
 
     const label = screen.getByText(/checkbox label/i)
     expect(label).toHaveStyle({ color: theme.colors.black })
+  })
+
+  it('should dispatch onCheck when status changes', async () => {
+    const onCheck = jest.fn()
+    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} />)
+
+    expect(onCheck).not.toHaveBeenCalled()
+
+    const input = screen.getByRole('checkbox')
+    userEvent.click(input)
+
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
   })
 })

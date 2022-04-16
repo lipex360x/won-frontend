@@ -20,6 +20,9 @@ export default {
   component: Checkbox,
   title: 'Design System/atoms/Checkbox',
   args: props,
+  argTypes: {
+    onCheck: { action: 'checked' }
+  },
   parameters
 } as Meta
 
