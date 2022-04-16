@@ -41,33 +41,26 @@ type FormatProps = {
 }
 
 const dateTransform = {
-  dateNow(): Date {
-    return dayjs().toDate()
-  },
+  dateNow: (): Date => dayjs().toDate(),
 
-  convertToUTC({ date }: ConvertProps): string {
-    return dayjs(date).utc().local().format()
-  },
+  format: ({ date, format }: FormatProps): string => dayjs(date).format(format),
 
-  format({ date, format }: FormatProps): string {
-    return dayjs(date).format(format)
-  },
+  convertToUTC: ({ date }: ConvertProps): string =>
+    dayjs(date).utc().local().format(),
 
-  addTime({ time, unit, date = null }: AddSubtractProps): Date {
-    return date
+  addTime: ({ time, unit, date = null }: AddSubtractProps): Date =>
+    date
       ? dayjs(date).add(time, unit).toDate()
-      : dayjs().add(time, unit).toDate()
-  },
+      : dayjs().add(time, unit).toDate(),
 
-  subtractTime({ time, unit, date = null }: AddSubtractProps): Date {
-    return date
+  subtractTime: ({ time, unit, date = null }: AddSubtractProps): Date =>
+    date
       ? dayjs(date).subtract(time, unit).toDate()
-      : dayjs().subtract(time, unit).toDate()
-  },
+      : dayjs().subtract(time, unit).toDate(),
 
-  compareDates({ start_date, end_date, unit }: CompareDatesProps): number {
-    const start_date_utc = this.convertToUTC({ date: start_date })
-    const end_date_utc = this.convertToUTC({ date: end_date })
+  compareDates: ({ start_date, end_date, unit }: CompareDatesProps): number => {
+    const start_date_utc = dateTransform.convertToUTC({ date: start_date })
+    const end_date_utc = dateTransform.convertToUTC({ date: end_date })
 
     return dayjs(end_date_utc).diff(start_date_utc, unit)
   }

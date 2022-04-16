@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import {{pascalCase name}}, { {{pascalCase name}}Props } from '.'
+import {{pascalCase name}}, { {{ props }} } from '.'
 import theme from 'styles/theme'
 
 import props from './mock'
@@ -23,7 +23,7 @@ export default {
   parameters
 } as Meta
 
-export const Mobile: Story<{{pascalCase name}}Props> = (args) => (
+export const Mobile: Story<{{ props }}> = (args) => (
   <div>
     <{{pascalCase name}} {...args} />
   </div>
@@ -35,7 +35,7 @@ Mobile.parameters = {
   }
 }
 
-export const Default: Story<{{pascalCase name}}Props> = (args) => (
+export const Default: Story<{{ props }}> = (args) => (
   <div>
     <{{pascalCase name}} {...args} />
   </div>

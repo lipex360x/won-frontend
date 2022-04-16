@@ -1,0 +1,13 @@
+import * as S from './styles'
+
+export type {{pascalCase name}}TemplateProps = {
+  title?: string
+}
+
+const {{pascalCase name}} = ({ title = '{{pascalCase name}}' }: {{pascalCase name}}TemplateProps) => (
+  <S.Wrapper>
+    <S.Title>{title}</S.Title>
+  </S.Wrapper>
+)
+
+export default {{pascalCase name}}

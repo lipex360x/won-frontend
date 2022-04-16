@@ -1,30 +1,26 @@
 import crypto from 'crypto'
 
-export const capitalize = (word: string) => {
-  const lower = word.toLowerCase()
+const textTransform = {
+  capitalize: (word: string): string =>
+    word.charAt(0).toUpperCase() + word.toLowerCase(),
 
-  return word.charAt(0).toUpperCase() + lower.slice(1)
+  pascalCase: (word: string): string =>
+    word.replace(/([-_ ]\w)/g, (text) => text[1].toUpperCase()),
+
+  camelCase: (word: string): string =>
+    word.replace(/^([A-Z])|\s(\w)/g, function (match, p1, p2) {
+      if (p2) return p2.toUpperCase()
+      return p1.toLowerCase()
+    }),
+
+  snakeCase: (string: string): string =>
+    string
+      .replace(/\d+/g, ' ')
+      .split(/ |\B(?=[A-Z])/)
+      .map((word) => word.toLowerCase())
+      .join('_'),
+
+  generateId: (size = 20): string => crypto.randomBytes(size).toString('hex')
 }
 
-export const pascalCase = (word: string) => {
-  return word.replace(/([-_ ]\w)/g, (text) => text[1].toUpperCase())
-}
-
-export const camelCase = (word: string) => {
-  return word.replace(/^([A-Z])|\s(\w)/g, function (match, p1, p2) {
-    if (p2) return p2.toUpperCase()
-    return p1.toLowerCase()
-  })
-}
-
-export const snakeCase = (string: string) => {
-  return string
-    .replace(/\d+/g, ' ')
-    .split(/ |\B(?=[A-Z])/)
-    .map((word) => word.toLowerCase())
-    .join('_')
-}
-
-export const generateId = (size = 20) => {
-  return crypto.randomBytes(size).toString('hex')
-}
+export default textTransform

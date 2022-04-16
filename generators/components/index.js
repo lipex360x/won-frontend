@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+const textTransform = require('./_utils/textTransform')
+
 module.exports = {
   description: 'Generate a Component',
   prompts: [
@@ -36,13 +38,16 @@ module.exports = {
     const pathTemplate = './components/templates'
     const componentPath = `../src/components/${atomic}/{{ pascalCase name }}`
     const pagePath = `../src/pages/{{ camelCase name }}`
+    const props = atomic === 'templates' ? `${textTransform.capitalize(name)}TemplateProps` : `${textTransform.capitalize(name)}Props`
+
+    console.log(pagePath)
 
     const files = () => {
       const arrayFiles = []
 
       if(atomic === 'page') {
         arrayFiles.push({
-          data: {name},
+          data: { name, props },
           path: `${pagePath}`,
           name: 'index.tsx',
           template: 'page.hbs',
@@ -50,15 +55,15 @@ module.exports = {
         })
       } else {
         arrayFiles.push({
-          data: {},
+          data: { props },
           path: `${componentPath}`,
           name: 'index.tsx',
-          template: 'index.hbs',
+          template: atomic === 'templates' ? 'template.hbs' : 'index.hbs',
           force: false
         })
 
         arrayFiles.push({
-          data: {atomic},
+          data: { atomic, props },
           path: `${componentPath}`,
           name: 'stories.tsx',
           template: 'stories.hbs',
@@ -74,7 +79,7 @@ module.exports = {
         })
 
         arrayFiles.push({
-          data: {},
+          data: { props },
           path: `${componentPath}`,
           name: 'test.tsx',
           template: 'test.hbs',
