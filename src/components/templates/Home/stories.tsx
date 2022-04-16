@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import Home, { HomeProps } from '.'
+import Home, { HomeTemplateProps } from '.'
 import theme from 'styles/theme'
 
 const parameters = {
@@ -20,7 +20,7 @@ export default {
   parameters
 } as Meta
 
-export const Mobile: Story<HomeProps> = () => (
+export const Mobile: Story<HomeTemplateProps> = () => (
   <div>
     <Home />
   </div>
@@ -32,7 +32,7 @@ Mobile.parameters = {
   }
 }
 
-export const Default: Story<HomeProps> = () => (
+export const Default: Story<HomeTemplateProps> = () => (
   <div>
     <Home />
   </div>

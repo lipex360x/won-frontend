@@ -1,5 +1,9 @@
 import crypto from 'crypto'
 
+type AccentsMapProps = {
+  [key: string]: string
+}
+
 const textTransform = {
   capitalize: (word: string): string =>
     word.charAt(0).toUpperCase() + word.toLowerCase(),
@@ -20,7 +24,29 @@ const textTransform = {
       .map((word) => word.toLowerCase())
       .join('_'),
 
-  generateId: (size = 20): string => crypto.randomBytes(size).toString('hex')
+  generateId: (size = 20): string => crypto.randomBytes(size).toString('hex'),
+
+  sanitize: (text: string) => {
+    text = text
+      .replace(/\uFEFF/g, '')
+      .replace(/[&\\/\\#,+()$~%!.„'":*‚^_¤?<>|@ª{«»§}©®™ ]/g, '')
+
+    const accentsMap: AccentsMapProps = {
+      a: 'á|à|ã|â|À|Á|Ã|Â',
+      e: 'é|è|ê|É|È|Ê|ë|Ë',
+      i: 'í|ì|î|Í|Ì|Î|ï|Ï',
+      o: 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
+      u: 'ú|ù|û|ü|Ú|Ù|Û|Ü',
+      c: 'ç|Ç',
+      n: 'ñ|Ñ'
+    }
+
+    return Object.keys(accentsMap).reduce(
+      (acc: string, cur: string) =>
+        acc.replace(new RegExp(accentsMap[cur], 'g'), cur),
+      text
+    )
+  }
 }
 
 export default textTransform
