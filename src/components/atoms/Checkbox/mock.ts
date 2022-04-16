@@ -1,3 +1,1 @@
-export default {
-  title: 'Checkbox'
-} as const
+export default {} as const

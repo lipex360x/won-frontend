@@ -6,7 +6,7 @@ import props from './mock'
 
 const parameters = {
   backgrounds: {
-    default: 'white',
+    default: 'main',
     values: [
       { name: 'main', value: `${theme.colors.mainBg}` },
       { name: 'white', value: `${theme.colors.white}` },

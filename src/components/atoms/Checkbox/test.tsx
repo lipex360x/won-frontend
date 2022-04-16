@@ -6,9 +6,38 @@ import { renderWithTheme } from 'utils/helpers/tests'
 import Checkbox from '.'
 
 import props from './mock'
+import theme from 'styles/theme'
 
 describe('<Checkbox />', () => {
-  it('should render the heading', () => {
-    const { debug, container } = renderWithTheme(<Checkbox {...props} />)
+  it('should render with label', () => {
+    renderWithTheme(<Checkbox label="checkbox label" labelFor="check" />)
+
+    const input = screen.getByRole('checkbox')
+    expect(input).toBeInTheDocument()
+
+    const labelText = screen.getByLabelText(/checkbox label/i)
+    expect(labelText).toBeInTheDocument()
+
+    const label = screen.getByText(/checkbox label/i)
+    expect(label).toHaveAttribute('for', 'check')
+  })
+
+  it('should render without label', () => {
+    renderWithTheme(<Checkbox />)
+
+    const input = screen.getByRole('checkbox')
+    expect(input).toBeInTheDocument()
+
+    const label = screen.queryByLabelText('Checkbox')
+    expect(label).not.toBeInTheDocument()
+  })
+
+  it('should render with black label', () => {
+    renderWithTheme(
+      <Checkbox label="checkbox label" labelFor="check" labelColor="black" />
+    )
+
+    const label = screen.getByText(/checkbox label/i)
+    expect(label).toHaveStyle({ color: theme.colors.black })
   })
 })
