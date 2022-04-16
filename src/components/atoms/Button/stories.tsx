@@ -16,6 +16,9 @@ const parameters = {
       { name: 'white', value: `${theme.colors.white}` },
       { name: 'dark', value: `${theme.colors.black}` }
     ]
+  },
+  viewport: {
+    defaultViewport: 'mobile2'
   }
 }
 

@@ -10,7 +10,9 @@ import theme from 'styles/theme'
 
 describe('<Checkbox />', () => {
   it('should render with label', () => {
-    renderWithTheme(<Checkbox label="checkbox label" labelFor="check" />)
+    const { container } = renderWithTheme(
+      <Checkbox label="checkbox label" labelFor="check" />
+    )
 
     const input = screen.getByRole('checkbox')
     expect(input).toBeInTheDocument()
@@ -20,6 +22,8 @@ describe('<Checkbox />', () => {
 
     const label = screen.getByText(/checkbox label/i)
     expect(label).toHaveAttribute('for', 'check')
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render without label', () => {

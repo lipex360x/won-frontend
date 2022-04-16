@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import Checkbox, { CheckboxProps } from '.'
+import Radio, { RadioProps } from '.'
 import theme from 'styles/theme'
 
 const parameters = {
@@ -18,44 +18,43 @@ const parameters = {
 }
 
 export default {
-  component: Checkbox,
-  title: 'Design System/atoms/Checkbox',
-  argTypes: {
-    onCheck: { action: 'checked' }
-  },
+  component: Radio,
+  title: 'Design System/atoms/Radio',
   parameters
 } as Meta
 
-export const Default: Story<CheckboxProps> = (args) => (
+export const Default: Story<RadioProps> = (args) => (
   <>
     <div style={{ padding: 10 }}>
-      <Checkbox
-        name="category"
-        label="Action"
-        labelFor="action"
-        isChecked
+      <Radio
+        label="First"
+        labelFor="first"
+        id="first"
+        name="name"
+        value="first"
+        defaultChecked
         {...args}
       />
     </div>
-
     <div style={{ padding: 10 }}>
-      <Checkbox
-        name="category"
-        label="Adventure"
-        labelFor="adventure"
+      <Radio
+        label="Second"
+        labelFor="second"
+        id="second"
+        name="name"
+        value="second"
         {...args}
       />
     </div>
-
     <div style={{ padding: 10 }}>
-      <Checkbox
-        name="category"
-        label="Strategy"
-        labelFor="strategy"
+      <Radio
+        label="Third"
+        labelFor="third"
+        id="third"
+        name="name"
+        value="third"
         {...args}
       />
     </div>
   </>
 )
-
-Default.parameters = {}
