@@ -16,7 +16,7 @@ const parameters = {
     values: [
       { name: 'main', value: `${theme.colors.mainBg}` },
       { name: 'white', value: `${theme.colors.white}` },
-      { name: 'black', value: `${theme.colors.black}` }
+      { name: 'dark', value: `${theme.colors.black}` }
     ]
   }
 }
