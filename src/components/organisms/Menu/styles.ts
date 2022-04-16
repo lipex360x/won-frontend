@@ -90,6 +90,8 @@ export const MenuFull = styled.nav<MenuFullProps>`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: fixed;
+    z-index: ${theme.layers.menu};
 
     background: ${theme.colors.white};
     position: absolute;

@@ -2,6 +2,8 @@ import { Story, Meta } from '@storybook/react'
 import Home, { HomeTemplateProps } from '.'
 import theme from 'styles/theme'
 
+import items from './mock'
+
 const parameters = {
   backgrounds: {
     default: 'main',
@@ -10,19 +12,20 @@ const parameters = {
       { name: 'white', value: `${theme.colors.white}` },
       { name: 'dark', value: `${theme.colors.black}` }
     ]
-  }
-  // layout: 'fullscreen',
+  },
+  layout: 'fullscreen'
 }
 
 export default {
   component: Home,
   title: 'Design System/templates/Home',
+  args: items,
   parameters
 } as Meta
 
 export const Mobile: Story<HomeTemplateProps> = () => (
   <div>
-    <Home />
+    <Home {...items} />
   </div>
 )
 
@@ -34,6 +37,6 @@ Mobile.parameters = {
 
 export const Default: Story<HomeTemplateProps> = () => (
   <div>
-    <Home />
+    <Home {...items} />
   </div>
 )

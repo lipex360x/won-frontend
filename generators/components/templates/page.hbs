@@ -1,5 +1,7 @@
+import {{ pascalCase name }}, { {{ pascalCase name }}Props } from 'components/templates/{{ pascalCase name }}'
+
 export default function Index({ page }) {
-  return <h1>{ page }</h1>
+  return <h1>{page}</h1>
 }
 
 export async function getStaticProps() {

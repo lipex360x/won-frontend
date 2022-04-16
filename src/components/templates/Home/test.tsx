@@ -3,11 +3,13 @@ import { screen } from '@testing-library/react'
 
 import { renderWithTheme } from 'utils/helpers/tests'
 
+import items from './mock'
+
 import Home from '.'
 
 describe('<Home />', () => {
   it('should render menu and footer', () => {
-    renderWithTheme(<Home />)
+    renderWithTheme(<Home {...items} />)
 
     const menu = screen.getByLabelText(/open menu/i)
     expect(menu).toBeInTheDocument()
@@ -17,28 +19,28 @@ describe('<Home />', () => {
   })
 
   it('should render a News Section', () => {
-    renderWithTheme(<Home />)
+    renderWithTheme(<Home {...items} />)
 
     const heading = screen.getByRole('heading', { name: /news/i })
     expect(heading).toBeInTheDocument()
   })
 
   it('should render a Most Popular Section', () => {
-    renderWithTheme(<Home />)
+    renderWithTheme(<Home {...items} />)
 
     const heading = screen.getByRole('heading', { name: /most popular/i })
     expect(heading).toBeInTheDocument()
   })
 
   it('should render a Upcoming Section', () => {
-    renderWithTheme(<Home />)
+    renderWithTheme(<Home {...items} />)
 
     const heading = screen.getByRole('heading', { name: /upcoming/i })
     expect(heading).toBeInTheDocument()
   })
 
   it('should render a Free Games Section', () => {
-    renderWithTheme(<Home />)
+    renderWithTheme(<Home {...items} />)
 
     const heading = screen.getByRole('heading', { name: /free games/i })
     expect(heading).toBeInTheDocument()
