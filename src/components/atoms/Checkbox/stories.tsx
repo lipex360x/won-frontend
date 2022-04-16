@@ -2,8 +2,6 @@ import { Story, Meta } from '@storybook/react'
 import Checkbox, { CheckboxProps } from '.'
 import theme from 'styles/theme'
 
-import props from './mock'
-
 const parameters = {
   backgrounds: {
     default: 'main',
@@ -12,34 +10,53 @@ const parameters = {
       { name: 'white', value: `${theme.colors.white}` },
       { name: 'dark', value: `${theme.colors.black}` }
     ]
-  }
-  // layout: 'fullscreen',
+  },
+  layout: 'fullscreen'
 }
 
 export default {
   component: Checkbox,
   title: 'Design System/atoms/Checkbox',
-  args: props,
   argTypes: {
     onCheck: { action: 'checked' }
   },
   parameters
 } as Meta
 
-export const Mobile: Story<CheckboxProps> = (args) => (
-  <div>
-    <Checkbox isChecked {...args} />
-  </div>
+export const Default: Story<CheckboxProps> = (args) => (
+  <>
+    <div style={{ padding: 10 }}>
+      <Checkbox
+        name="category"
+        label="Action"
+        labelFor="action"
+        isChecked
+        {...args}
+      />
+    </div>
+
+    <div style={{ padding: 10 }}>
+      <Checkbox
+        name="category"
+        label="Adventure"
+        labelFor="adventure"
+        {...args}
+      />
+    </div>
+
+    <div style={{ padding: 10 }}>
+      <Checkbox
+        name="category"
+        label="Strategy"
+        labelFor="strategy"
+        {...args}
+      />
+    </div>
+  </>
 )
 
-Mobile.parameters = {
+Default.parameters = {
   viewport: {
     defaultViewport: 'mobile2'
   }
 }
-
-export const Default: Story<CheckboxProps> = (args) => (
-  <div>
-    <Checkbox isChecked {...args} />
-  </div>
-)
