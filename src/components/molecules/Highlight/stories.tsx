@@ -1,13 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import Highlight, { HighlightProps } from '.'
 
-const props = {
-  title: "Red Dead it's back",
-  subtitle: 'Come see now',
-  backgroundImage: 'img/red-dead-img.jpg',
-  buttonLabel: 'Buy now',
-  buttonLink: '/rds'
-}
+import props from './mock'
 
 const parameters = {
   backgrounds: {

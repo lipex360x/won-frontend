@@ -80,6 +80,14 @@ module.exports = {
           template: 'test.hbs',
           force: false
         })
+
+        arrayFiles.push({
+          data: {},
+          path: `${componentPath}`,
+          name: 'mock.ts',
+          template: 'mock.hbs',
+          force: false
+        })
       }
 
       return arrayFiles
