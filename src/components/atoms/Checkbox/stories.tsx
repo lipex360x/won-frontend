@@ -19,7 +19,7 @@ const parameters = {
 
 export default {
   component: Checkbox,
-  title: 'Design System/atoms/Checkbox',
+  title: 'Design System/atoms/form/Checkbox',
   argTypes: {
     onCheck: { action: 'checked' }
   },

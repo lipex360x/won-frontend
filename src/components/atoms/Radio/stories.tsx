@@ -19,7 +19,7 @@ const parameters = {
 
 export default {
   component: Radio,
-  title: 'Design System/atoms/Radio',
+  title: 'Design System/atoms/form/Radio',
   parameters
 } as Meta
 
