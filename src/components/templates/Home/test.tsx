@@ -14,35 +14,32 @@ describe('<Home />', () => {
     const menu = screen.getByLabelText(/open menu/i)
     expect(menu).toBeInTheDocument()
 
-    const contact = screen.getByRole('heading', { name: /contact/i })
-    expect(contact).toBeInTheDocument()
-  })
+    const footer = screen.getByRole('heading', { name: /contact/i })
+    expect(footer).toBeInTheDocument()
 
-  it('should render a News Section', () => {
-    renderWithTheme(<Home {...items} />)
+    const headingNews = screen.getByRole('heading', { name: /news/i })
+    expect(headingNews).toBeInTheDocument()
 
-    const heading = screen.getByRole('heading', { name: /news/i })
-    expect(heading).toBeInTheDocument()
-  })
+    const headingMostPopular = screen.getByRole('heading', {
+      name: /most popular/i
+    })
+    expect(headingMostPopular).toBeInTheDocument()
 
-  it('should render a Most Popular Section', () => {
-    renderWithTheme(<Home {...items} />)
+    const headingUpcomming = screen.getByRole('heading', { name: /Upcomming/i })
+    expect(headingUpcomming).toBeInTheDocument()
 
-    const heading = screen.getByRole('heading', { name: /most popular/i })
-    expect(heading).toBeInTheDocument()
-  })
+    const headingFreeGames = screen.getByRole('heading', {
+      name: /free games/i
+    })
+    expect(headingFreeGames).toBeInTheDocument()
 
-  it('should render a Upcoming Section', () => {
-    renderWithTheme(<Home {...items} />)
+    const banner = screen.getAllByText(/defy death 2/i)
+    expect(banner).toHaveLength(1)
 
-    const heading = screen.getByRole('heading', { name: /upcoming/i })
-    expect(heading).toBeInTheDocument()
-  })
+    const cardGames = screen.getAllByText(/population zero/i)
+    expect(cardGames).toHaveLength(20)
 
-  it('should render a Free Games Section', () => {
-    renderWithTheme(<Home {...items} />)
-
-    const heading = screen.getByRole('heading', { name: /free games/i })
-    expect(heading).toBeInTheDocument()
+    const highlight = screen.getAllByText(/red dead/i)
+    expect(highlight).toHaveLength(3)
   })
 })
