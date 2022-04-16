@@ -1,7 +1,10 @@
 import Link from 'next/link'
+// import dateTransform from 'utils/dateTransform'
+
 import Heading from 'components/atoms/Heading'
 import Logo from 'components/atoms/Logo'
 import * as S from './styles'
+import dateTransform from 'utils/dateTransform'
 
 const Footer = () => (
   <S.Wrapper>
@@ -81,7 +84,10 @@ const Footer = () => (
       </S.Column>
     </S.Content>
 
-    <S.Copyright>Won Games 2020 © All rights reserved.</S.Copyright>
+    <S.Copyright>
+      Won Games {dateTransform.format({ date: new Date(), format: 'YYYY' })} ©
+      All rights reserved.
+    </S.Copyright>
   </S.Wrapper>
 )
 

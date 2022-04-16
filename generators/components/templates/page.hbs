@@ -1,3 +1,13 @@
-export default function Index() {
-  return <h1>{{ pascalCase name }}</h1>
+export default function Index({ page }) {
+  return <h1>{ page }</h1>
+}
+
+export async function getStaticProps() {
+  // to do
+
+  return {
+    props: {
+      page: 'Hello {{ pascalCase name }}'
+    }
+  }
 }
