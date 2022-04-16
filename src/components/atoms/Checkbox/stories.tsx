@@ -28,7 +28,7 @@ export default {
 
 export const Mobile: Story<CheckboxProps> = (args) => (
   <div>
-    <Checkbox {...args} />
+    <Checkbox isChecked {...args} />
   </div>
 )
 
@@ -40,6 +40,6 @@ Mobile.parameters = {
 
 export const Default: Story<CheckboxProps> = (args) => (
   <div>
-    <Checkbox {...args} />
+    <Checkbox isChecked {...args} />
   </div>
 )

@@ -6,7 +6,6 @@ import { renderWithTheme } from 'utils/helpers/tests'
 
 import Checkbox from '.'
 
-import props from './mock'
 import theme from 'styles/theme'
 
 describe('<Checkbox />', () => {
@@ -49,10 +48,30 @@ describe('<Checkbox />', () => {
     expect(onCheck).not.toHaveBeenCalled()
 
     const input = screen.getByRole('checkbox')
-    userEvent.click(input)
+
+    await userEvent.click(input)
 
     await waitFor(() => {
       expect(onCheck).toHaveBeenCalledTimes(1)
     })
+
+    expect(onCheck).toHaveBeenCalledWith(true)
+  })
+
+  it('should dispatch onCheck when status changes', async () => {
+    const onCheck = jest.fn()
+    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} isChecked />)
+
+    expect(onCheck).not.toHaveBeenCalled()
+
+    const input = screen.getByRole('checkbox')
+
+    await userEvent.click(input)
+
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
+
+    expect(onCheck).toHaveBeenCalledWith(false)
   })
 })
