@@ -3,20 +3,44 @@ import { screen } from '@testing-library/react'
 
 import { renderWithTheme } from 'utils/helpers/tests'
 
-import Home, { HomeProps } from '.'
-
-const props: HomeProps = {
-  title: 'Home'
-}
+import Home from '.'
 
 describe('<Home />', () => {
-  it('should render the heading', () => {
-    const { debug, container } = renderWithTheme(<Home {...props} />)
+  it('should render menu and footer', () => {
+    renderWithTheme(<Home />)
 
-    const home = screen.getByRole('heading', { name: /Home/i })
+    const menu = screen.getByLabelText(/open menu/i)
+    expect(menu).toBeInTheDocument()
 
-    debug(container)
+    const contact = screen.getByRole('heading', { name: /contact/i })
+    expect(contact).toBeInTheDocument()
+  })
 
-    expect(home).toBeInTheDocument()
+  it('should render a News Section', () => {
+    renderWithTheme(<Home />)
+
+    const heading = screen.getByRole('heading', { name: /news/i })
+    expect(heading).toBeInTheDocument()
+  })
+
+  it('should render a Most Popular Section', () => {
+    renderWithTheme(<Home />)
+
+    const heading = screen.getByRole('heading', { name: /most popular/i })
+    expect(heading).toBeInTheDocument()
+  })
+
+  it('should render a Upcoming Section', () => {
+    renderWithTheme(<Home />)
+
+    const heading = screen.getByRole('heading', { name: /upcoming/i })
+    expect(heading).toBeInTheDocument()
+  })
+
+  it('should render a Free Games Section', () => {
+    renderWithTheme(<Home />)
+
+    const heading = screen.getByRole('heading', { name: /free games/i })
+    expect(heading).toBeInTheDocument()
   })
 })
