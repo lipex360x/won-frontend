@@ -21,7 +21,8 @@ export default {
   title: 'Design System/atoms/form/TextField',
   args: props,
   argTypes: {
-    onInput: { action: 'changed' }
+    onInput: { action: 'changed' },
+    icon: { type: 'symbol' }
   },
   parameters
 } as Meta
