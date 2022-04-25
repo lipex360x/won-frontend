@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components'
+import { TextfieldProps } from '.'
+
+type IconPositionProps = Pick<TextfieldProps, 'iconPosition'>
 
 export const Wrapper = styled.div``
 
@@ -16,35 +19,37 @@ export const InputWrapper = styled.div`
     }
   `}
 `
-
-export const Icon = styled.div`
+export const Label = styled.label`
   ${({ theme }) => css`
+    font-size: ${theme.font.sizes.small};
+    color: ${theme.colors.black};
+    cursor: pointer;
+  `}
+`
+
+export const Icon = styled.div<IconPositionProps>`
+  ${({ theme, iconPosition }) => css`
     display: flex;
     width: 2.2rem;
     color: ${theme.colors.gray};
+    order: ${iconPosition === 'right' ? 1 : 0};
+
     & > svg {
       width: 100%;
     }
   `}
 `
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+export const Input = styled.input<IconPositionProps>`
+  ${({ theme, iconPosition }) => css`
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall};
+    padding: ${theme.spacings.xxsmall} 0;
+    padding-${iconPosition}: ${theme.spacings.xsmall};
     background: transparent;
     border: 0;
     outline: none;
     width: 100%;
-  `}
-`
-
-export const Label = styled.label`
-  ${({ theme }) => css`
-    font-size: ${theme.font.sizes.small};
-    color: ${theme.colors.black};
-    cursor: pointer;
   `}
 `
