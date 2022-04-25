@@ -9,6 +9,7 @@ export type TextfieldProps = {
   label?: string
   labelFor?: string
   initialValue?: string
+  disabled?: boolean
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextField = ({
@@ -18,6 +19,7 @@ const TextField = ({
   label,
   labelFor = '',
   initialValue = '',
+  disabled = false,
   ...props
 }: TextfieldProps) => {
   const [value, setValue] = useState(initialValue)
@@ -41,6 +43,7 @@ const TextField = ({
           onChange={onChange}
           value={value}
           iconPosition={iconPosition}
+          disabled={disabled}
           {...props}
         ></S.Input>
       </S.InputWrapper>

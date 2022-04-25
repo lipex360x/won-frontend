@@ -97,4 +97,25 @@ describe('<TextField />', () => {
     const icon = screen.getByTestId('icon')
     expect(icon.parentElement).toHaveStyle({ order: 1 })
   })
+
+  it('should render a disabled version', async () => {
+    const onInput = jest.fn()
+
+    renderWithTheme(<TextField {...props} disabled />)
+
+    const textfield = screen.getByRole('textbox')
+
+    expect(textfield).toBeDisabled()
+
+    const text = 'This is a new text'
+
+    await userEvent.type(textfield, text)
+
+    await waitFor(() => {
+      expect(textfield).not.toHaveValue(text)
+      expect(onInput).not.toHaveBeenCalledTimes(text.length)
+    })
+
+    expect(onInput).not.toHaveBeenCalledWith(text)
+  })
 })
