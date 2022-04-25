@@ -118,4 +118,13 @@ describe('<TextField />', () => {
 
     expect(onInput).not.toHaveBeenCalledWith(text)
   })
+
+  it('should render a error version', () => {
+    renderWithTheme(<TextField {...props} error="something is wrong" />)
+
+    const textError = screen.getByText(/something is wrong/i)
+
+    expect(textError).toBeInTheDocument()
+    expect(textError).toHaveStyle({ color: '#FF6347' })
+  })
 })

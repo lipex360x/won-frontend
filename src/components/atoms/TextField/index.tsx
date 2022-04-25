@@ -5,8 +5,9 @@ import * as S from './styles'
 export type TextfieldProps = {
   onInput?: (value: string) => void
   icon?: JSX.Element
-  iconPosition?: 'left' | 'right'
   label?: string
+  error?: string
+  iconPosition?: 'left' | 'right'
   labelFor?: string
   initialValue?: string
   disabled?: boolean
@@ -15,8 +16,9 @@ export type TextfieldProps = {
 const TextField = ({
   onInput,
   icon,
-  iconPosition = 'left',
   label,
+  error,
+  iconPosition = 'left',
   labelFor = '',
   initialValue = '',
   disabled = false,
@@ -32,7 +34,7 @@ const TextField = ({
   }
 
   return (
-    <S.Wrapper>
+    <S.Wrapper error={!!error}>
       {!!label && (
         <S.Label disabled={disabled} htmlFor={labelFor}>
           {label}
@@ -51,6 +53,8 @@ const TextField = ({
           {...props}
         ></S.Input>
       </S.InputWrapper>
+
+      {!!error && <S.Error>{error}</S.Error>}
     </S.Wrapper>
   )
 }

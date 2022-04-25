@@ -27,25 +27,27 @@ export default {
   parameters
 } as Meta
 
-export const Default: Story<TextfieldProps> = (args) => (
+export const withIcon: Story<TextfieldProps> = (args) => (
   <div>
     <TextField {...args} />
   </div>
 )
 
-Default.parameters = {
+withIcon.parameters = {
   viewport: {
     defaultViewport: 'mobile2'
   }
 }
 
-export const withIcon: Story<TextfieldProps> = (args) => (
+export const withError: Story<TextfieldProps> = (args) => (
   <div>
     <TextField {...args} icon={<Email />} />
   </div>
 )
 
-withIcon.parameters = {
+withError.args = { error: 'Oopssss... something is wrong' }
+
+withError.parameters = {
   viewport: {
     defaultViewport: 'mobile2'
   }

@@ -1,9 +1,33 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import { TextfieldProps } from '.'
 
 type IconPositionProps = Pick<TextfieldProps, 'iconPosition'>
 
-export const Wrapper = styled.div``
+const WrapperModifier = {
+  error: (theme: DefaultTheme) => css`
+    ${InputWrapper} {
+      border-color: ${theme.colors.red};
+    }
+
+    ${Icon},
+    ${Label} {
+      color: ${theme.colors.red};
+    }
+  `
+}
+
+export const Wrapper = styled.div<{ error: boolean }>`
+  ${({ theme, error }) => css`
+    ${error && WrapperModifier.error(theme)}
+  `}
+`
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
+  `}
+`
 
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
