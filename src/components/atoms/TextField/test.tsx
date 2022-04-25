@@ -33,6 +33,14 @@ describe('<TextField />', () => {
     expect(textfield).toBeInTheDocument()
   })
 
+  it('should render with a initial value', () => {
+    renderWithTheme(<TextField {...props} initialValue="hello" />)
+
+    const textfield = screen.getByDisplayValue(/hello/i)
+
+    expect(textfield).toBeInTheDocument()
+  })
+
   it('should change its value when typing', async () => {
     const onInput = jest.fn()
 
@@ -52,7 +60,7 @@ describe('<TextField />', () => {
   })
 
   it('should be able to navigate with tab', async () => {
-    renderWithTheme(<TextField {...props} />)
+    renderWithTheme(<TextField {...props} initialValue="e-mail" />)
 
     const textfield = screen.getByLabelText(/e-mail/i)
 
