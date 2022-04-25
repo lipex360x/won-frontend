@@ -1,5 +1,6 @@
 import 'match-media-mock'
 import { screen, waitFor } from '@testing-library/react'
+import { Email } from 'styled-icons/material-outlined'
 import userEvent from '@testing-library/user-event'
 
 import { renderWithTheme } from 'utils/helpers/tests'
@@ -69,5 +70,17 @@ describe('<TextField />', () => {
     await userEvent.tab()
 
     expect(textfield).toHaveFocus()
+  })
+
+  it('should render an icon version', () => {
+    renderWithTheme(
+      <TextField {...props} icon={<Email data-testid="icon" />} />
+    )
+
+    const textfield = screen.getByLabelText(/e-mail/i)
+    const icon = screen.getByTestId('icon')
+
+    expect(textfield).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
   })
 })

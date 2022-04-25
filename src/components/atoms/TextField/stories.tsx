@@ -3,6 +3,7 @@ import TextField, { TextfieldProps } from '.'
 import theme from 'styles/theme'
 
 import props from './mock'
+import { Email } from 'styled-icons/material-outlined'
 
 const parameters = {
   backgrounds: {
@@ -25,20 +26,26 @@ export default {
   parameters
 } as Meta
 
-export const Mobile: Story<TextfieldProps> = (args) => (
-  <div>
-    <TextField {...args} />
-  </div>
-)
-
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'mobile2'
-  }
-}
-
 export const Default: Story<TextfieldProps> = (args) => (
   <div>
     <TextField {...args} />
   </div>
 )
+
+Default.parameters = {
+  viewport: {
+    defaultViewport: 'mobile2'
+  }
+}
+
+export const withIcon: Story<TextfieldProps> = (args) => (
+  <div>
+    <TextField {...args} icon={<Email />} />
+  </div>
+)
+
+withIcon.parameters = {
+  viewport: {
+    defaultViewport: 'mobile2'
+  }
+}
