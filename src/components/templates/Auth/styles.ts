@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-// import media from 'styled-media-query'
+import media from 'styled-media-query'
 
 import * as HeadingStyles from 'components/atoms/Heading/styles'
 import * as LogoStyles from 'components/atoms/Logo/styles'
@@ -7,8 +7,12 @@ import * as LogoStyles from 'components/atoms/Logo/styles'
 export const Wrapper = styled.section`
   ${({ theme }) => css`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     height: 100vh;
+
+    ${media.greaterThan('medium')`
+      grid-template-columns: 1fr 1fr;
+    `}
   `}
 `
 
@@ -21,6 +25,10 @@ export const BannerBlock = styled.div`
     background-image: url(/img/auth-bg.png);
     background-size: cover;
     background-position: center center;
+
+    ${media.lessThan('medium')`
+      display: none
+    `}
 
     &:after {
       content: '';
@@ -79,6 +87,10 @@ export const Content = styled.div`
 export const ContentWrapper = styled.div`
   ${({ theme }) => css`
     width: 30rem;
+
+    ${media.greaterThan('medium')`
+      width: 36rem;
+    `}
 
     ${LogoStyles.Wrapper} {
       margin: 0 auto ${theme.spacings.xxlarge};
