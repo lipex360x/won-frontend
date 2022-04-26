@@ -1,3 +1,4 @@
 export default {
-  title: 'Auth'
+  title: 'Auth Title',
+  children: 'Auth Template'
 } as const

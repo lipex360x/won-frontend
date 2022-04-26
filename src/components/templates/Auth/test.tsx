@@ -8,13 +8,33 @@ import Auth from '.'
 import props from './mock'
 
 describe('<Auth />', () => {
-  it('should render the heading', () => {
-    const { debug, container } = renderWithTheme(<Auth {...props} />)
+  it('should render logos, title and children', () => {
+    renderWithTheme(
+      <Auth {...props}>
+        <input type="text" />
+      </Auth>
+    )
 
-    const auth = screen.getByRole('heading', { name: /Auth/i })
+    const logos = screen.getAllByRole('img', { name: /won games/i })
+    expect(logos).toHaveLength(2)
 
-    debug(container)
+    const heading1 = screen.getByRole('heading', { name: /auth title/i })
+    expect(heading1).toBeInTheDocument()
 
-    expect(auth).toBeInTheDocument()
+    const heading2 = screen.getByRole('heading', {
+      name: /all your favorite games/i
+    })
+    expect(heading2).toBeInTheDocument()
+
+    const subtitle = screen.getByRole('heading', {
+      name: /won is the best and/i
+    })
+    expect(subtitle).toBeInTheDocument()
+
+    const footer = screen.getByText(/todos os direitos reservados/i)
+    expect(footer).toBeInTheDocument()
+
+    const children = screen.getByRole('textbox')
+    expect(children).toBeInTheDocument()
   })
 })
