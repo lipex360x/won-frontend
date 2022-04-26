@@ -6,14 +6,14 @@ import props from './mock'
 
 const parameters = {
   backgrounds: {
-    default: 'white',
+    default: 'main',
     values: [
       { name: 'main', value: `${theme.colors.mainBg}` },
       { name: 'white', value: `${theme.colors.white}` },
       { name: 'dark', value: `${theme.colors.black}` }
     ]
-  }
-  // layout: 'fullscreen',
+  },
+  layout: 'fullscreen'
 }
 
 export default {
@@ -35,7 +35,7 @@ Mobile.parameters = {
   }
 }
 
-export const Default: Story<AuthTemplateProps> = (args) => (
+export const Desktop: Story<AuthTemplateProps> = (args) => (
   <div>
     <Auth {...args} />
   </div>
