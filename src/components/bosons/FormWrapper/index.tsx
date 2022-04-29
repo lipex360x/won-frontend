@@ -4,7 +4,7 @@ import { lighten, darken } from 'polished'
 import * as TextFieldStyles from 'components/atoms/TextField/styles'
 import * as ButtonStyles from 'components/atoms/Button/styles'
 
-export const Wrapper = styled.div`
+export const FormWrapper = styled.div`
   ${({ theme }) => css`
     ${TextFieldStyles.Wrapper} {
       margin: ${theme.spacings.xxsmall} 0;
