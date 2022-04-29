@@ -9,7 +9,7 @@ import FormSignIn from '.'
 
 describe('<FormSignIn />', () => {
   it('should render the form', () => {
-    renderWithTheme(<FormSignIn />)
+    const { container } = renderWithTheme(<FormSignIn />)
 
     const inputEmail = screen.getByPlaceholderText(/email/i)
     expect(inputEmail).toBeInTheDocument()
@@ -19,6 +19,8 @@ describe('<FormSignIn />', () => {
 
     const button = screen.getByRole('button', { name: /sign in now/i })
     expect(button).toBeInTheDocument()
+
+    expect(container.parentElement).toMatchSnapshot()
   })
 
   it('should render the forgot password link', () => {
