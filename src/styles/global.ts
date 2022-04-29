@@ -65,12 +65,6 @@ const GlobalStyles: GlobalStyleComponent<
     background: transparent;
   }
 
-  a {
-    color: inherit;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed
