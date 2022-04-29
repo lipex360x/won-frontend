@@ -1,8 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-import FormSignIn from '.'
+import FormSignUp from '.'
 import theme from 'styles/theme'
-
-import props from './mock'
 
 const parameters = {
   backgrounds: {
@@ -13,19 +11,17 @@ const parameters = {
       { name: 'dark', value: `${theme.colors.black}` }
     ]
   }
-  // layout: 'fullscreen',
 }
 
 export default {
-  component: FormSignIn,
-  title: 'Design System/molecules/form/FormSignIn',
-  args: props,
+  component: FormSignUp,
+  title: 'Design System/molecules/form/FormSignUp',
   parameters
 } as Meta
 
 export const Mobile: Story = () => (
   <div style={{ width: 300, margin: 'auto' }}>
-    <FormSignIn />
+    <FormSignUp />
   </div>
 )
 
@@ -37,6 +33,6 @@ Mobile.parameters = {
 
 export const Default: Story = () => (
   <div style={{ width: 300, margin: 'auto' }}>
-    <FormSignIn />
+    <FormSignUp />
   </div>
 )

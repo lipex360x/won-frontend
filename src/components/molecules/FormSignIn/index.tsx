@@ -5,10 +5,6 @@ import * as S from './styles'
 import Button from 'components/atoms/Button'
 import TextField from 'components/atoms/TextField'
 
-export type FormsigninProps = {
-  title?: string
-}
-
 const FormSignIn = () => (
   <S.Wrapper>
     <form>
