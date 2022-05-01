@@ -5,8 +5,6 @@ import { renderWithTheme } from 'utils/helpers/tests'
 
 import FormSignIn from '.'
 
-// import props from './mock'
-
 describe('<FormSignIn />', () => {
   it('should render the form', () => {
     const { container } = renderWithTheme(<FormSignIn />)

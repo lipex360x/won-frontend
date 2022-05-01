@@ -2,8 +2,6 @@ import { Story, Meta } from '@storybook/react'
 import FormSignIn from '.'
 import theme from 'styles/theme'
 
-import props from './mock'
-
 const parameters = {
   backgrounds: {
     default: 'white',
@@ -19,7 +17,6 @@ const parameters = {
 export default {
   component: FormSignIn,
   title: 'Design System/molecules/form/FormSignIn',
-  args: props,
   parameters
 } as Meta
 
