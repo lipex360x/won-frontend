@@ -3,7 +3,7 @@ import styled, { css, DefaultTheme } from 'styled-components'
 import { darken } from 'polished'
 import { ButtonProps } from '.'
 
-type WrapperProps = {
+export type WrapperProps = {
   hasIcon: boolean
 } & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'>
 
@@ -60,6 +60,7 @@ export const Wrapper = styled.button<WrapperProps>`
     cursor: pointer;
     border-radius: ${theme.border.radius};
     padding: ${theme.spacings.xxsmall};
+    text-decoration: none;
 
     &:hover {
       background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);

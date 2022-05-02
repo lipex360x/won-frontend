@@ -52,6 +52,11 @@ export const BannerContent = styled.div`
     justify-content: space-between;
     z-index: ${theme.layers.base};
     color: ${theme.colors.white};
+
+    a {
+      width: fit-content;
+      height: fit-content;
+    }
   `}
 `
 

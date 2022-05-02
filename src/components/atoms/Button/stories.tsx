@@ -29,6 +29,9 @@ export default {
   argTypes: {
     icon: {
       type: 'symbol'
+    },
+    size: {
+      defaultValue: 'large'
     }
   },
   parameters
@@ -39,6 +42,16 @@ export const Default: Story = (args) => (
     <Button {...args} />
   </div>
 )
+
+Default.argTypes = {
+  icon: {
+    type: 'symbol'
+  },
+  size: {
+    defaultValue: 'medium',
+    type: 'symbol'
+  }
+}
 
 export const withIcon: Story = (args) => (
   <div>

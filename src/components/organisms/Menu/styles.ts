@@ -56,6 +56,7 @@ export const MenuLink = styled.a`
     font-size: ${theme.font.sizes.medium};
     margin: 0.3rem ${theme.spacings.small} 0;
     text-align: center;
+    text-decoration: none;
 
     &:hover {
       &::after {
